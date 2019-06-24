@@ -1,8 +1,8 @@
-package com.tutorial.aop.demo;
+package com.tutorial.aop.javaprofiler;
 
-import com.tutorial.aop.demo.service.ContentService;
-import com.tutorial.aop.demo.service.PropertyService;
-import com.tutorial.aop.demo.service.UserService;
+import com.tutorial.aop.javaprofiler.service.ContentService;
+import com.tutorial.aop.javaprofiler.service.PropertyService;
+import com.tutorial.aop.javaprofiler.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

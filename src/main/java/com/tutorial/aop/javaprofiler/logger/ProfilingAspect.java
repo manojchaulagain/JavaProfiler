@@ -1,4 +1,4 @@
-package com.tutorial.aop.demo.logger;
+package com.tutorial.aop.javaprofiler.logger;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -60,7 +60,7 @@ public class ProfilingAspect {
 
 */
 
-    @Around("execution(* com.tutorial.aop.demo.service.*.*(..))")
+    @Around("execution(* com.tutorial.aop.javaprofiler.service.*.*(..))")
     public Object around( ProceedingJoinPoint pjp )
             throws Throwable {
         long startTime = System.currentTimeMillis();

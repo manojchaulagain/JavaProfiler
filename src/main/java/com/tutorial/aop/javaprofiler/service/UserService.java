@@ -1,4 +1,4 @@
-package com.tutorial.aop.demo.service;
+package com.tutorial.aop.javaprofiler.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

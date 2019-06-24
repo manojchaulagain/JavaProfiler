@@ -1,4 +1,4 @@
-package com.tutorial.aop.demo;
+package com.tutorial.aop.javaprofiler;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

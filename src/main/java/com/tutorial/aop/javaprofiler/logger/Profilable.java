@@ -1,4 +1,4 @@
-package com.tutorial.aop.demo.logger;
+package com.tutorial.aop.javaprofiler.logger;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

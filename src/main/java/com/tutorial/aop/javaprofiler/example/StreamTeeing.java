@@ -1,4 +1,4 @@
-package com.tutorial.aop.demo.example;
+package com.tutorial.aop.javaprofiler.example;
 
 import java.util.stream.Stream;
 
