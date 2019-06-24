@@ -11,8 +11,13 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class ProfilingAspect {
 
-
     private boolean header = false;
+
+    private static final String line =
+            "+----------------------------------------------------+----------------------------------------------------+--------------+--------------+--------------+%n";
+    private static final String headerFormat = "| %-50s | %-50s | %-12s | %-12s | %-12s |%n";
+    private static final String contentFormat = "| %-50s | %-50s | %-12d | %-12d | %-12d |%n";
+
     /*
     @Pointcut("execution(* com.tutorial..aop.demo.UserController.*(..)))")
     public void loggable() {
@@ -63,25 +68,24 @@ public class ProfilingAspect {
         String className = pjp.getTarget().getClass().getCanonicalName();
         String methodName = pjp.getSignature().getName();
 
-        if(!header) {
+        if ( !header ) {
+
             header = true;
             System.out
-                    .format( "+----------------------------------------------------+----------------------------------------------------+--------------+--------------+--------------+%n" );
+                    .format( line );
             System.out
-                    .format( "| CLASSNAME                                          | METHOD NAME                                        | TIME         | MEMORY USED  | MEMORY FREE  |%n" );
+                    .format( String.format( headerFormat, "CLASSNAME", "METHOD NAME", "TIME", "MEMORY USED", "MEMORY FREE" ) );
             System.out
-                    .format( "+----------------------------------------------------+----------------------------------------------------+--------------+--------------+--------------+%n" );
+                    .format( line );
         }
         try {
             return pjp.proceed();
         } catch ( Throwable e ) {
             throw e;
         } finally {
-
-            String leftAlignFormat = "| %-50s | %-50s | %-12d | %-12d | %-12d |%n";
             long timeTaken = System.currentTimeMillis() - startTime;
             long memoryUsage = freeMemory - Runtime.getRuntime().freeMemory();
-            System.out.format( String.format( leftAlignFormat, className, methodName, timeTaken, memoryUsage, Runtime.getRuntime().freeMemory() ) );
+            System.out.format( String.format( contentFormat, className, methodName, timeTaken, memoryUsage, Runtime.getRuntime().freeMemory() ) );
         }
     }
 }
